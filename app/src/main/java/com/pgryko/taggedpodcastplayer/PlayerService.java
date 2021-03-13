@@ -59,11 +59,7 @@ public class PlayerService extends Service {
             switch (msg.what) {
                 case SET_AUDIO_SOURCE:
                     try {
-                        //String fileName2 = "/mnt/sdcard/DCIM/taggedPlayer/KLCW_Drogi Rothschildow_do_bogactwa.mp3"; // TODO - ścieżka jest na sztywno
-                       //Uri inputData  = (Uri) msg.obj;
-                        //mediaPlayer1.setDataSource(inputData.getEncodedPath());
                         mediaPlayer1.setDataSource((String) msg.obj);
-                        //mediaPlayer1.setDataSource("/mnt/sdcard/DCIM/taggedPlayer/KLCW_Drogi_Rothschildow_do_bogactwa.mp3");
                         mediaPlayer1.prepare();
                     }catch (Exception e){
                         // TODO log
@@ -135,7 +131,7 @@ public class PlayerService extends Service {
         }
 
         private void setAudioSpeed(int speedPercent) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) { // TODO: zdeaktywować przyciski do zmiany prędkości gdy niższa wersja?
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) { // TODO: hide/deactivate when older version?
                 try {
                     boolean isPlaying = mediaPlayer1.isPlaying();
                     PlaybackParams params = mediaPlayer1.getPlaybackParams();
@@ -149,7 +145,7 @@ public class PlayerService extends Service {
                 }
             }
             else{
-                Toast.makeText(PlayerService.this, "Zmiana prędkości nie jest obsługiwana na tym urządzeniu", Toast.LENGTH_LONG).show(); // TODO: teksty do XML-a
+                Toast.makeText(PlayerService.this, getString(R.string.text04), Toast.LENGTH_LONG).show();
             }
         }
 

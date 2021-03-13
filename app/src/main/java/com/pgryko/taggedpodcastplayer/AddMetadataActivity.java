@@ -11,7 +11,6 @@ import android.widget.Toast;
 
 import java.time.Duration;
 
-// TODO: przenieść do oddzielnego pakietu?
 public class AddMetadataActivity extends AppCompatActivity {
     private AudioFileMetadata metadata;
     private String metadataFileString;
@@ -42,7 +41,7 @@ public class AddMetadataActivity extends AppCompatActivity {
         btSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                metadata.setDescription(editTextDescription.getText().toString()); // TODO: jak zrobić, żeby było wiadomo że 'metadata' pochodzą z klasy nadrzędnej
+                metadata.setDescription(editTextDescription.getText().toString());
                 rw.metadataList.add(metadata);
                 rw.WriteToFile();
 
@@ -56,7 +55,7 @@ public class AddMetadataActivity extends AppCompatActivity {
         this.rw = new AudioFileMetaReaderWriter(metadataFileString);
         this.rw.ReadFromFile();
         if (this.rw.metadataList == null || this.rw.metadataList.isEmpty()){
-            Toast.makeText(this, "Nie ma jeszcze żadnych znaczników", Toast.LENGTH_LONG).show(); // TODO: tekst przenieść do XML-a
+            Toast.makeText(this, "Nie ma jeszcze żadnych znaczników", Toast.LENGTH_LONG).show();
         }
     }
 

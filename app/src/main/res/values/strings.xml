@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">TaggedPodcastPlayer</string>
     <string name="action_settings">Settings</string>
+    <string name="text01">Call directly from the file!</string>
+    <string name="text02">List of metadata is empty</string>
+    <string name="text03">Path to metadata file is empty</string>
+    <string name="text04">Speed ​​change is not supported on this device!</string>
+    <string name="text05">There are no tags yet!</string>
 </resources>

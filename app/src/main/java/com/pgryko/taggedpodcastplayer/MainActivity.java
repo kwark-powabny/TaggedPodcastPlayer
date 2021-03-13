@@ -76,11 +76,11 @@ public class MainActivity extends AppCompatActivity {
             this.audioPathString = inputIntent.getData().getPath(); //.getEncodedPath();
             this.metadataPathString = inputIntent.getData().getPath() + ".json"; //getEncodedPath()
         } else{
-            Toast.makeText(MainActivity.this, "Wywołaj bezpośrednio z pliku!", Toast.LENGTH_LONG).show(); // TODO
-            finish(); // TODO: i tak wywołuje serwer??? Pokazuje się toast "Connected"
-//            Log.d(TAG, "Użyto ścieżek testowych!!!!");
+            Toast.makeText(MainActivity.this, getString(R.string.text01), Toast.LENGTH_LONG).show();
+            finish(); // TODO: the server calls anyway??? The toast "Connected" is shown
+//            Log.d(TAG, "Test paths used!!!!");
 //            this.audioPathString = "/mnt/sdcard/DCIM/taggedPlayer/KLCW_Drogi_Rothschildow_do_bogactwa.mp3";
-//            this.metadataPathString = "/mnt/sdcard/DCIM/taggedPlayer/KLCW_Drogi_Rothschildow_do_bogactwa.mp3.json"; //TODO: plik json na sztywno
+//            this.metadataPathString = "/mnt/sdcard/DCIM/taggedPlayer/KLCW_Drogi_Rothschildow_do_bogactwa.mp3.json";
         }
 
 
@@ -117,12 +117,12 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-                // TODO: pokazywać label z bieżącą pozycją?
+                // TODO: show a label that follows the thumb
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                // TODO: chować label z bieżącą pozycją?
+                // TODO: hide a label that follows the thumb
             }
 
             private String convertTimeFormat(int duration){
@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
                 AudioFileMetadata metadata = new AudioFileMetadata("", Duration.ofMillis(seekBar1.getProgress()), Duration.ofMillis(seekBar1.getMax()));
                 Intent intent = new Intent(MainActivity.this, AddMetadataActivity.class);
                 intent.putExtra(AUDIO_FILE_METADATA, metadata);
-                intent.putExtra(JSON_FILE_PATH, metadataPathString ); // TODO: nie może być pusta
+                intent.putExtra(JSON_FILE_PATH, metadataPathString ); // TODO: can't be empty
                 startActivity(intent);
             }
         });
@@ -258,18 +258,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
 
-                // >> TODO: zapisać gdzieś do innego projektu - ćwiczenie zapisywania do pliku w  wewnętrznej pamięci aplikacji
-//                Toast.makeText(MainActivity.this, getDataDir().toString(), Toast.LENGTH_SHORT).show();
-//
-//                try {
-//                    FileOutputStream fos;
-//                    fos = openFileOutput("plikTestowy", Context.MODE_APPEND);
-//                    byte[] b = {1, 2, 3, 4};
-//                    fos.write(b);
-//                }catch (Exception e){
-//                    Toast.makeText(MainActivity.this, "błąd zapisu do pliku", Toast.LENGTH_LONG).show();
-//                }
-                // << TODO
             }
         });
 
@@ -309,7 +297,7 @@ public class MainActivity extends AppCompatActivity {
         };
         repetitiveRunnable.run();
 
-        // >> TODO: gdzie umieścić obsługę listy
+        // >> TODO: move somewhere else
 
         // ---- read metadata from file
         readMetadataList();
@@ -341,7 +329,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         });
-        // << TODO: gdzie umieścić obsługę listy
+        // << TODO: move somewhere else
     }
 
     @Override
@@ -364,10 +352,10 @@ public class MainActivity extends AppCompatActivity {
             if (metaReaderWriter.metadataList != null && !metaReaderWriter.metadataList.isEmpty()){
                 arrayList.addAll(metaReaderWriter.metadataList);
             } else {
-                Log.d(TAG, "List of metadata is empty"); // TODO: tekst do xml-a
+                Log.d(TAG, getString(R.string.text02));
             }
         }else {
-            Log.e(TAG, "Path to metadata file is empty"); // TODO: tekst do xml-a
+            Log.e(TAG, getString(R.string.text03));
         }
     }
 
@@ -386,11 +374,9 @@ public class MainActivity extends AppCompatActivity {
             mBound = true;
 
             // ----- set audio source
-            // TODO - może można przekazać źródłowy plik bezpośrednio w bindingu?
+            // TODO - maybe pass source file directly in binding??
             try {
-                //Uri inputData = inputIntent.getData();
-                //Toast.makeText(MainActivity.this, inputData.getEncodedPath(), Toast.LENGTH_LONG).show();
-                if (audioPathString != null && audioPathString != "") {
+                 if (audioPathString != null && audioPathString != "") {
                     Message msg = Message.obtain(null, PlayerService.SET_AUDIO_SOURCE, 0, 0, audioPathString);
                     msg.replyTo = replyMessenger;
                     mService.send(msg);
