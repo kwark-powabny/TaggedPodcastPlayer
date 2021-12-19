@@ -1,3 +1,12 @@
-# TaggedPodcastPlayer
-
-![Screenshot_20211219_130213_com pgryko taggedpodcastplayer](https://user-images.githubusercontent.com/57114377/146674538-d538ff4d-edd4-40b5-a048-bf02cea42397.jpg)
+<p>&nbsp;</p><p>Aplikacja odtwarza audycje zapisane 
+lokalnie w pamięci telefonu. Od dawna brakowało mi aplikacji do wygodnego 
+słuchania podcastów. Nie udało mi się znaleźć w Google Play takiej która będzie spełniała wszystkie moje wymagania. Zatem postanowiłem napisać 
+własną.&nbsp;</p><p>Szczególnie uciążliwe w istniejących aplikacjach było dla mnie to, że zazwyczaj tworzą one własne listy wyszukując wszystkie pliki audio bez względu na ich lokalizację w systemie plików.&nbsp; A ja od dawna mam
+ własną strukturę folderów, w których przetrzymuję pliki podcastów. 
+Zacząłem układać ją jeszcze na stacjonarnym PC jako strukturę 
+folderów na dysku. Jest to dla mnie wygodne, bo struktura jest 
+niezależna od systemu plików ani od urządzenia - jest taka sama zarówno w
+ Android jak też na komputerze z Windows.</p><p></p><p><br /></p><div class="separator" style="clear: both; text-align: center;"><a href="https://user-images.githubusercontent.com/57114377/146679742-15f9436c-2a63-4e17-8afc-57d57166745b.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="698" data-original-width="800" height="698" src="https://user-images.githubusercontent.com/57114377/146679742-15f9436c-2a63-4e17-8afc-57d57166745b.jpg" width="800" /></a></div><br /><p>&nbsp;Aplikacja jest tak zaprogramowana, że nie trzeba jej bezpośrednio 
+uruchamiać. Wystarczy w dowolnym menadżerze plików wybrać plik audio i 
+po prostu na niego kliknąć. Odtwarzacz uruchomi się automatycznie i 
+wczyta skojarzoną listę zakładek. Podstawowe cechy odtwarzacza to:<br /></p><p>- lista zakładek - pomaga określić co zawiera całość audycji. Pozwala również szybko przejść do&nbsp; interesującego fragment nagrania po kliknięciu pozycji z listy. Lista jest przewijalna.</p><p>- klawisz "Dodaj zakładkę" - pozwala dodać nową zakładkę wraz z opisem.<br /></p><p>- klawisze szybkiego przewijania w przód i w tył - szczególnie przydatne podczas słuchania mowy, bo pozwala w prosty sposób powtórzyć lub pominąć np. ostatnie zdanie. <br /></p><p>- zmiana szybkości odtwarzania - często zdarza się że nagrana osoba mówi dość powoli i rozwlekle. Mogę to przyspieszyć. Poza tym gdy odsłuchuję nagranie kolejny raz, mogę szybko przesłuchać i&nbsp; przypomnieć o czym jest dany fragment audycji.<br /></p><p></p><p></p><p>Zakładki są zapisywane w osobnym pliku JSON. Znajdują się równolegle w tym samym folderze co plik audio, z tą samą nazwą, z dodanym na końcu rozszerzeniem .JSON. Jest to rozwiązanie uniwersalne. Dzięki temu mogę łatwo przenosić plik audio wraz z opisem pomiędzy urządzeniami i różnymi systemami operacyjnymi. Mogę nawet ręcznie edytować zakładki, w dowolnym edytorze tekstowym.</p><p>&nbsp;</p><p></p>
